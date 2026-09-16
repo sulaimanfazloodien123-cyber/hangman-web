@@ -16,11 +16,11 @@ const categories = {
               'dragonite', 'mewtwo', 'mew', 'lugia', 'rayquaza', 'giratina',
               'lucario', 'gengar', 'garchomp'],
 
-    solo: ['jinwoo', 'sung', 'cha', 'hae', 'joohee', 'jinho', 'goh',
-           'gunhee', 'baek', 'yoonho', 'chaerin', 'esil', 'beru', 'igris',
-           'iron', 'tank', 'tusk', 'kiba', 'fangs', 'kamish',
-           'antares', 'baran', 'bellion', 'ashborn', 'monarch',
-           'ruler', 'hunter', 'shadow', 'arise', 'igris']
+    solo: ['jinwoo', 'jinah', 'joohee', 'jinho', 'gunhee', 'baek',
+           'chaerin', 'esil', 'beru', 'igris', 'iron', 'tank', 'tusk',
+           'kiba', 'fangs', 'kamish', 'antares', 'baran', 'bellion',
+           'ashborn', 'frost', 'kandiaru', 'rajak', 'legia', 'sillad',
+           'monarch', 'ruler', 'arise', 'shadow', 'gate', 'dungeon']
 };
 
 const stages = [
