@@ -2,22 +2,25 @@ const categories = {
     naruto: ['naruto', 'sasuke', 'sakura', 'kakashi', 'hinata', 'itachi', 'gaara',
              'rocklee', 'neji', 'shikamaru', 'jiraiya', 'tsunade', 'orochimaru',
              'minato', 'madara', 'obito', 'boruto', 'sarada'],
+
     anime: ['gojo', 'jinwoo', 'kirito', 'meliodas', 'luffy', 'zoro', 'sanji',
             'nami', 'usopp', 'chopper', 'robin', 'saitama', 'genos', 'tanjiro',
             'nezuko', 'zenitsu', 'giyu', 'ichigo', 'goku', 'vegeta'],
+
     games: ['zelda', 'mario', 'sonic', 'link', 'pikachu', 'kirby', 'samus',
             'bowser', 'yoshi', 'lucario', 'greninja', 'charizard', 'cloud',
             'sephiroth', 'tifa', 'kratos', 'ellie', 'geralt', 'arthur', 'gordon'],
+
     pokemon: ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charizard',
               'squirtle', 'blastoise', 'pikachu', 'raichu', 'eevee', 'snorlax',
               'dragonite', 'mewtwo', 'mew', 'lugia', 'rayquaza', 'giratina',
-              'lucario', 'gengar', 'garchomp']
-       solo: ['jinwoo', 'jinah', 'joohee', 'jinho', 'gunhee', 'baek',
-           'yoonho', 'chaerin', 'esil', 'haein', 'goh', 'hunter',
-           'beru', 'igris', 'iron', 'tank', 'tusk', 'kiba', 'fangs',
-           'kamish', 'antares', 'baran', 'bellion', 'ashborn',
-           'frost', 'kandiaru', 'rajak', 'greed', 'legia', 'sillad',
-           'monarch', 'ruler', 'arise', 'shadow', 'gate', 'dungeon']
+              'lucario', 'gengar', 'garchomp'],
+
+    solo: ['jinwoo', 'sung', 'cha', 'hae', 'joohee', 'jinho', 'goh',
+           'gunhee', 'baek', 'yoonho', 'chaerin', 'esil', 'beru', 'igris',
+           'iron', 'tank', 'tusk', 'kiba', 'fangs', 'kamish',
+           'antares', 'baran', 'bellion', 'ashborn', 'monarch',
+           'ruler', 'hunter', 'shadow', 'arise', 'igris']
 };
 
 const stages = [
