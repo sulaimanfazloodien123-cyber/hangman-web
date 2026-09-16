@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Hangman</h1>
+
+    <div id="category-picker">
+        <p>Pick a category:</p>
+        <button class="cat-btn" data-cat="naruto">Naruto</button>
+        <button class="cat-btn" data-cat="anime">Anime</button>
+        <button class="cat-btn" data-cat="games">Games</button>
+        <button class="cat-btn" data-cat="pokemon">Pokemon</button>
+    </div>
+
+    <div id="game" style="display:none;">
+        <pre id="stickman"></pre>
+        <p id="category-label"></p>
+        <p id="word-display"></p>
+        <p id="letters-tried"></p>
+        <p id="attempts-display"></p>
+        <p id="message"></p>
+        <div id="keyboard"></div>
+        <button id="hint-btn">Hint (costs 1 attempt)</button>
+        <button id="play-again-btn" style="display:none;">Play Again</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
