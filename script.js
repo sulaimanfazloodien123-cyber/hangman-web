@@ -12,6 +12,12 @@ const categories = {
               'squirtle', 'blastoise', 'pikachu', 'raichu', 'eevee', 'snorlax',
               'dragonite', 'mewtwo', 'mew', 'lugia', 'rayquaza', 'giratina',
               'lucario', 'gengar', 'garchomp']
+       solo: ['jinwoo', 'jinah', 'joohee', 'jinho', 'gunhee', 'baek',
+           'yoonho', 'chaerin', 'esil', 'haein', 'goh', 'hunter',
+           'beru', 'igris', 'iron', 'tank', 'tusk', 'kiba', 'fangs',
+           'kamish', 'antares', 'baran', 'bellion', 'ashborn',
+           'frost', 'kandiaru', 'rajak', 'greed', 'legia', 'sillad',
+           'monarch', 'ruler', 'arise', 'shadow', 'gate', 'dungeon']
 };
 
 const stages = [
