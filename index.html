@@ -11,6 +11,12 @@
 
     <h1>Hangman</h1>
 
+    <div id="leaderboard">
+        <h2>🏆 Leaderboard</h2>
+        <ol id="leaderboard-list"></ol>
+        <p id="no-scores">No scores yet — be the first!</p>
+    </div>
+
     <div id="category-picker">
         <p>Pick a category:</p>
         <button class="cat-btn" data-cat="naruto">Naruto</button>
@@ -32,6 +38,12 @@
         <div id="keyboard"></div>
         <button id="hint-btn">Hint (costs 1 attempt)</button>
         <button id="play-again-btn" style="display:none;">Play Again</button>
+
+        <div id="name-entry" style="display:none;">
+            <p>You won! Enter your name for the leaderboard:</p>
+            <input type="text" id="player-name" maxlength="12" placeholder="Your name">
+            <button id="save-score-btn">Save Score</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
