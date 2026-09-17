@@ -1,15 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: monospace, sans-serif;
     background: #1a1a2e;
     color: #eee;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     margin: 0;
+    min-height: 100vh;
 }
 
 h1 {
     color: #e94560;
     letter-spacing: 2px;
+    font-size: 28px;
+    margin: 10px 0 15px 0;
 }
 
 button {
@@ -22,6 +29,7 @@ button {
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 button:hover:not(:disabled) {
@@ -34,65 +42,131 @@ button:disabled {
 }
 
 .cat-btn {
-    font-size: 18px;
-    padding: 12px 22px;
-}
-
-#stickman {
-    font-family: 'Courier New', Consolas, monospace;
-    font-size: 14px;
-    line-height: 1.2;
-    color: #eee;
-    white-space: pre;
-    display: inline-block;
-    text-align: left;
-    background: #0f0f1f;
-    padding: 15px 25px;
-    border-radius: 8px;
-    margin: 10px auto;
-}
-
-#word-display {
-    font-size: 32px;
-    letter-spacing: 8px;
-    margin: 20px 0;
-}
-
-#keyboard {
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-#keyboard button {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    font-size: 18px;
-}
-
-#hint-btn, #play-again-btn {
-    font-size: 18px;
-    padding: 12px 22px;
-    margin-top: 20px;
-}
-
-#message {
-    font-size: 20px;
-    color: #f9c74f;
-    min-height: 28px;
-}
-
-#attempts-display {
-    color: #ff6b6b;
+    font-size: 16px;
+    padding: 12px 18px;
+    margin: 5px;
 }
 
 #score-display {
-    font-size: 18px;
+    font-size: 16px;
     color: #f9c74f;
     margin-bottom: 10px;
     letter-spacing: 1px;
 }
 
+#stickman {
+    font-family: 'Courier New', Consolas, 'Liberation Mono', monospace;
+    font-size: 14px;
+    line-height: 1.15;
+    color: #eee;
+    white-space: pre;
+    display: inline-block;
+    text-align: left;
+    background: #0f0f1f;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 10px auto;
+    letter-spacing: 0;
+}
+
+#category-label {
+    font-size: 16px;
+    color: #a0a0c0;
+    margin: 10px 0;
+}
+
+#word-display {
+    font-size: 28px;
+    letter-spacing: 6px;
+    margin: 20px 0;
+    word-wrap: break-word;
+}
+
+#letters-tried {
+    font-size: 14px;
+    color: #a0a0c0;
+    margin: 10px 0;
+}
+
 #attempts-display {
     color: #ff6b6b;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+#message {
+    font-size: 18px;
+    color: #f9c74f;
+    min-height: 28px;
+    margin: 15px 0;
+    padding: 0 10px;
+}
+
+#keyboard {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 0 5px;
+}
+
+#keyboard button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 16px;
+    margin: 3px;
+}
+
+#hint-btn, #play-again-btn {
+    font-size: 16px;
+    padding: 12px 20px;
+    margin-top: 20px;
+}
+
+/* === PHONE LAYOUT === */
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin: 5px 0 10px 0;
+    }
+
+    .cat-btn {
+        font-size: 14px;
+        padding: 10px 14px;
+        margin: 4px;
+    }
+
+    #stickman {
+        font-size: 11px;
+        padding: 8px 12px;
+        line-height: 1.1;
+    }
+
+    #word-display {
+        font-size: 22px;
+        letter-spacing: 4px;
+        margin: 15px 0;
+    }
+
+    #keyboard {
+        max-width: 100%;
+    }
+
+    #keyboard button {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+        margin: 2px;
+    }
+
+    #message {
+        font-size: 16px;
+    }
+
+    #score-display {
+        font-size: 14px;
+    }
 }
