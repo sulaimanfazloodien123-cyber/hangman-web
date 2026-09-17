@@ -140,7 +140,7 @@ function startGame(category) {
     currentCategory = category;
     word = categories[category][Math.floor(Math.random() * categories[category].length)];
     guessedWord = Array(word.length).fill('_');
-    attempts = 10;
+    attempts = 7;
     guessedLetters = [];
     hintsUsed = 0;
     gameOver = false;
