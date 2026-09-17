@@ -51,6 +51,7 @@ button:disabled {
     border-radius: 8px;
     margin: 10px auto;
 }
+
 #word-display {
     font-size: 32px;
     letter-spacing: 8px;
@@ -79,6 +80,17 @@ button:disabled {
     font-size: 20px;
     color: #f9c74f;
     min-height: 28px;
+}
+
+#attempts-display {
+    color: #ff6b6b;
+}
+
+#score-display {
+    font-size: 18px;
+    color: #f9c74f;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 #attempts-display {
