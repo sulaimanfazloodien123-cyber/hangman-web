@@ -174,6 +174,7 @@ function startGame(category) {
     $('category-picker').style.display = 'none';
     $('game').style.display = 'block';
     $('play-again-btn').style.display = 'none';
+    $('name-entry').style.display = 'none';
     $('message').textContent = '';
     $('category-label').textContent = 'Category: ' + category;
 
@@ -252,6 +253,7 @@ function checkEnd() {
         updateScore();
         playWin();
         $('message').textContent = 'Congrats!! You guessed the word: ' + word;
+        $('name-entry').style.display = 'block';
         endGame();
     } else if (attempts <= 0) {
         gameOver = true;
@@ -279,4 +281,77 @@ $('hint-btn').onclick = useHint;
 $('play-again-btn').onclick = () => {
     $('game').style.display = 'none';
     $('category-picker').style.display = 'block';
+    window.scrollTo(0, 0);
 };
+
+// === LEADERBOARD ===
+const STORAGE_KEY = 'hangman_leaderboard';
+
+function getLeaderboard() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveLeaderboard(list) {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    } catch (e) {
+        console.error('Could not save leaderboard:', e);
+    }
+}
+
+function displayLeaderboard() {
+    const list = getLeaderboard();
+    const ol = $('leaderboard-list');
+    const noScores = $('no-scores');
+
+    ol.innerHTML = '';
+
+    if (list.length === 0) {
+        noScores.style.display = 'block';
+        return;
+    }
+    noScores.style.display = 'none';
+
+    list.slice(0, 5).forEach(entry => {
+        const li = document.createElement('li');
+        li.innerHTML = `<span>${entry.name}</span><span>${entry.wins} ${entry.wins === 1 ? 'win' : 'wins'}</span>`;
+        ol.appendChild(li);
+    });
+}
+
+function addScore(name, wins) {
+    const list = getLeaderboard();
+    const existing = list.find(e => e.name.toLowerCase() === name.toLowerCase());
+
+    if (existing) {
+        existing.wins = Math.max(existing.wins, wins);
+    } else {
+        list.push({ name: name, wins: wins });
+    }
+
+    list.sort((a, b) => b.wins - a.wins);
+    saveLeaderboard(list);
+    displayLeaderboard();
+}
+
+$('save-score-btn').onclick = () => {
+    const nameInput = $('player-name');
+    const name = nameInput.value.trim();
+
+    if (name.length === 0) {
+        alert('Please enter a name');
+        return;
+    }
+
+    addScore(name, wins);
+    $('name-entry').style.display = 'none';
+    nameInput.value = '';
+    $('message').textContent = 'Score saved! 🏆';
+};
+
+displayLeaderboard();
