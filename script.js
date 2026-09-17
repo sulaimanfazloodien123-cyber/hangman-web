@@ -42,7 +42,132 @@ const categories = {
          'constantine', 'rorschach', 'nightowl', 'ozymandias']
 };
 
-const stages = [
+// 10 attempts (11 drawings, index 0-10) for easy
+const stagesEasy = [
+`  +---+
+  |   |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+  |   |
+  |   |
+      |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|   |
+  |   |
+      |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+  |   |
+      |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+  |   |
+  |   |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+  |   |
+  |   |
+  |   |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+  |   |
+  |   |
+  |   |
+  |   |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+  |   |
+  |   |
+  |   |
+  |   |
+ /    |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+  |   |
+  |   |
+  |   |
+  |   |
+ / \\  |
+=========`
+];
+
+// 7 attempts (8 drawings, index 0-7) for normal
+const stagesNormal = [
 `  +---+
   |   |
       |
@@ -109,7 +234,53 @@ const stages = [
 =========`
 ];
 
-let word, guessedWord, attempts, guessedLetters, hintsUsed, currentCategory, gameOver;
+// 5 attempts (6 drawings, index 0-5) for hard
+const stagesHard = [
+`  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+      |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+ /    |
+      |
+=========`,
+`  +---+
+  |   |
+  O   |
+ /|\\  |
+ / \\  |
+      |
+=========`
+];
+
+let word, guessedWord, attempts, maxAttempts, guessedLetters, hintsUsed, currentCategory, gameOver, currentStages;
 let wins = 0;
 let losses = 0;
 
@@ -162,15 +333,28 @@ function playLose() {
 }
 // === END SOUND ===
 
-function startGame(category) {
+function startGame(category, difficulty) {
     currentCategory = category;
+
+    if (difficulty === 'easy') {
+        maxAttempts = 10;
+        currentStages = stagesEasy;
+    } else if (difficulty === 'hard') {
+        maxAttempts = 5;
+        currentStages = stagesHard;
+    } else {
+        maxAttempts = 7;
+        currentStages = stagesNormal;
+    }
+
     word = categories[category][Math.floor(Math.random() * categories[category].length)];
     guessedWord = Array(word.length).fill('_');
-    attempts = 7;
+    attempts = maxAttempts;
     guessedLetters = [];
     hintsUsed = 0;
     gameOver = false;
 
+    $('difficulty-picker').style.display = 'none';
     $('category-picker').style.display = 'none';
     $('game').style.display = 'block';
     $('play-again-btn').style.display = 'none';
@@ -240,7 +424,7 @@ function useHint() {
 }
 
 function updateDisplay() {
-    $('stickman').textContent = stages[7 - attempts];
+    $('stickman').textContent = currentStages[maxAttempts - attempts];
     $('word-display').textContent = guessedWord.join(' ');
     $('letters-tried').textContent = 'Letters tried: ' + guessedLetters.join(' ');
     $('attempts-display').textContent = 'Attempts left: ' + attempts + ' ' + '♥'.repeat(attempts);
@@ -274,13 +458,28 @@ function endGame() {
     $('play-again-btn').style.display = 'inline-block';
 }
 
-document.querySelectorAll('.cat-btn').forEach(btn => {
-    btn.onclick = () => startGame(btn.dataset.cat);
+// Difficulty buttons -> show category picker
+document.querySelectorAll('.diff-btn').forEach(btn => {
+    btn.onclick = () => {
+        window.selectedDifficulty = btn.dataset.diff;
+        $('difficulty-picker').style.display = 'none';
+        $('category-picker').style.display = 'block';
+        window.scrollTo(0, 0);
+    };
 });
+
+// Category buttons -> start the game with the chosen difficulty
+document.querySelectorAll('.cat-btn').forEach(btn => {
+    btn.onclick = () => startGame(btn.dataset.cat, window.selectedDifficulty || 'normal');
+});
+
 $('hint-btn').onclick = useHint;
+
+// Play Again -> back to difficulty picker
 $('play-again-btn').onclick = () => {
     $('game').style.display = 'none';
-    $('category-picker').style.display = 'block';
+    $('category-picker').style.display = 'none';
+    $('difficulty-picker').style.display = 'block';
     window.scrollTo(0, 0);
 };
 
