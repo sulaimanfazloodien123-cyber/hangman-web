@@ -219,7 +219,7 @@ function updateDisplay() {
 function checkEnd() {
     if (!guessedWord.includes('_')) {
         gameOver = true;
-        $('message').textContent = 'Oppai!! You guessed the word: ' + word;
+        $('message').textContent = 'Congrats!! You guessed the word: ' + word;
         endGame();
     } else if (attempts <= 0) {
         gameOver = true;
