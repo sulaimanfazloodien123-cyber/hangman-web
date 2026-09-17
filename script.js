@@ -210,7 +210,7 @@ function useHint() {
 }
 
 function updateDisplay() {
-    $('stickman').textContent = stages[10 - attempts];
+    $('stickman').textContent = stages[7 - attempts];
     $('word-display').textContent = guessedWord.join(' ');
     $('letters-tried').textContent = 'Letters tried: ' + guessedLetters.join(' ');
     $('attempts-display').textContent = 'Attempts left: ' + attempts + ' ' + '♥'.repeat(attempts);
