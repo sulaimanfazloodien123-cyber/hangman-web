@@ -116,7 +116,6 @@ let losses = 0;
 const $ = id => document.getElementById(id);
 
 // === SOUND ===
-// Uses the Web Audio API - no sound files needed
 let audioCtx = null;
 
 function initAudio() {
@@ -140,19 +139,16 @@ function playTone(frequency, duration, type) {
 }
 
 function playCorrect() {
-    // Two quick ascending notes - cheerful
     playTone(660, 0.1, 'sine');
     setTimeout(() => playTone(880, 0.15, 'sine'), 90);
 }
 
 function playWrong() {
-    // Low descending buzz - disappointing
     playTone(220, 0.2, 'sawtooth');
     setTimeout(() => playTone(150, 0.25, 'sawtooth'), 150);
 }
 
 function playWin() {
-    // Happy ascending arpeggio
     playTone(523, 0.1, 'sine');
     setTimeout(() => playTone(659, 0.1, 'sine'), 100);
     setTimeout(() => playTone(784, 0.15, 'sine'), 200);
@@ -160,7 +156,6 @@ function playWin() {
 }
 
 function playLose() {
-    // Sad descending tones
     playTone(400, 0.2, 'sine');
     setTimeout(() => playTone(300, 0.2, 'sine'), 180);
     setTimeout(() => playTone(200, 0.4, 'sine'), 360);
