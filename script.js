@@ -20,7 +20,26 @@ const categories = {
            'chaerin', 'esil', 'beru', 'igris', 'iron', 'tank', 'tusk',
            'kiba', 'fangs', 'kamish', 'antares', 'baran', 'bellion',
            'ashborn', 'frost', 'kandiaru', 'rajak', 'legia', 'sillad',
-           'monarch', 'ruler', 'arise', 'shadow', 'gate', 'dungeon']
+           'monarch', 'ruler', 'arise', 'shadow', 'gate', 'dungeon'],
+
+    marvel: ['spiderman', 'ironman', 'captainamerica', 'blackwidow',
+             'blackpanther', 'doctorstrange', 'scarletwitch', 'quicksilver',
+             'antman', 'wasp', 'hawkeye', 'wintersoldier', 'bucky',
+             'starlord', 'rocket', 'gamora', 'drax', 'mantis', 'nebula',
+             'shuri', 'okoye', 'mordo', 'venom', 'carnage', 'magneto',
+             'professorx', 'wolverine', 'storm', 'cyclops', 'rogue',
+             'deadpool', 'cable', 'daredevil', 'punisher', 'blade',
+             'moonknight', 'namor', 'thanos', 'ultron', 'loki', 'hulk',
+             'thor', 'odin', 'heimdall', 'valkyrie', 'ghostrider'],
+
+    dc: ['superman', 'batman', 'wonderwoman', 'flash', 'aquaman', 'cyborg',
+         'greenlantern', 'greenarrow', 'joker', 'harleyquinn', 'riddler',
+         'penguin', 'bane', 'catwoman', 'robin', 'nightwing', 'batgirl',
+         'gordon', 'alfred', 'loislane', 'lexluthor', 'zod', 'doomsday',
+         'darkseid', 'brainiac', 'shazam', 'raven', 'starfire', 'beastboy',
+         'deathstroke', 'scarecrow', 'poisonivy', 'misterfreeze', 'clayface',
+         'manbat', 'killercroc', 'oracle', 'huntress', 'zatanna',
+         'constantine', 'rorschach', 'nightowl', 'ozymandias']
 };
 
 const stages = [
