@@ -1,172 +1,108 @@
-* {
-    box-sizing: border-box;
+/* === LEADERBOARD === */
+#leaderboard {
+    max-width: 400px;
+    margin: 15px auto 25px auto;
+    background: #0f0f1f;
+    border-radius: 10px;
+    padding: 15px 20px;
+    text-align: left;
 }
 
-body {
-    font-family: monospace, sans-serif;
-    background: #1a1a2e;
-    color: #eee;
+#leaderboard h2 {
+    color: #f9c74f;
+    font-size: 18px;
+    margin: 0 0 10px 0;
     text-align: center;
-    padding: 15px;
+}
+
+#leaderboard-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
-    min-height: 100vh;
 }
 
-h1 {
-    color: #e94560;
-    letter-spacing: 2px;
-    font-size: 28px;
-    margin: 10px 0 15px 0;
+#leaderboard-list li {
+    padding: 6px 10px;
+    border-bottom: 1px solid #2a2a40;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
 }
 
-button {
+#leaderboard-list li:last-child {
+    border-bottom: none;
+}
+
+#leaderboard-list li:nth-child(1) {
+    color: #f9c74f;
+    font-weight: bold;
+}
+
+#leaderboard-list li:nth-child(2) {
+    color: #c0c0c0;
+}
+
+#leaderboard-list li:nth-child(3) {
+    color: #cd7f32;
+}
+
+#no-scores {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0 0 0;
+}
+
+#name-entry {
+    margin-top: 20px;
+    padding: 15px;
+    background: #0f0f1f;
+    border-radius: 10px;
+}
+
+#name-entry p {
+    margin: 0 0 10px 0;
+    color: #f9c74f;
+    font-size: 15px;
+}
+
+#player-name {
     font-family: inherit;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 2px solid #e94560;
     background: #16213e;
     color: #eee;
-    border: 2px solid #e94560;
-    padding: 10px 15px;
-    margin: 4px;
-    border-radius: 6px;
-    cursor: pointer;
+    outline: none;
+    width: 180px;
+    text-align: center;
+}
+
+#player-name:focus {
+    border-color: #f9c74f;
+}
+
+#save-score-btn {
+    margin-left: 8px;
     font-size: 16px;
-    -webkit-tap-highlight-color: transparent;
+    padding: 8px 16px;
 }
 
-button:hover:not(:disabled) {
-    background: #e94560;
-}
-
-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-.cat-btn {
-    font-size: 16px;
-    padding: 12px 18px;
-    margin: 5px;
-}
-
-#score-display {
-    font-size: 16px;
-    color: #f9c74f;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-#stickman {
-    font-family: 'Courier New', Consolas, 'Liberation Mono', monospace;
-    font-size: 14px;
-    line-height: 1.15;
-    color: #eee;
-    white-space: pre;
-    display: inline-block;
-    text-align: left;
-    background: #0f0f1f;
-    padding: 12px 20px;
-    border-radius: 8px;
-    margin: 10px auto;
-    letter-spacing: 0;
-}
-
-#category-label {
-    font-size: 16px;
-    color: #a0a0c0;
-    margin: 10px 0;
-}
-
-#word-display {
-    font-size: 28px;
-    letter-spacing: 6px;
-    margin: 20px 0;
-    word-wrap: break-word;
-}
-
-#letters-tried {
-    font-size: 14px;
-    color: #a0a0c0;
-    margin: 10px 0;
-}
-
-#attempts-display {
-    color: #ff6b6b;
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-#message {
-    font-size: 18px;
-    color: #f9c74f;
-    min-height: 28px;
-    margin: 15px 0;
-    padding: 0 10px;
-}
-
-#keyboard {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 0 5px;
-}
-
-#keyboard button {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    font-size: 16px;
-    margin: 3px;
-}
-
-#hint-btn, #play-again-btn {
-    font-size: 16px;
-    padding: 12px 20px;
-    margin-top: 20px;
-}
-
-/* === PHONE LAYOUT === */
+/* phone tweaks */
 @media (max-width: 500px) {
-    body {
-        padding: 10px;
+    #leaderboard {
+        padding: 10px 15px;
     }
-
-    h1 {
-        font-size: 24px;
-        margin: 5px 0 10px 0;
-    }
-
-    .cat-btn {
-        font-size: 14px;
-        padding: 10px 14px;
-        margin: 4px;
-    }
-
-    #stickman {
-        font-size: 11px;
-        padding: 8px 12px;
-        line-height: 1.1;
-    }
-
-    #word-display {
-        font-size: 22px;
-        letter-spacing: 4px;
-        margin: 15px 0;
-    }
-
-    #keyboard {
-        max-width: 100%;
-    }
-
-    #keyboard button {
-        width: 34px;
-        height: 34px;
-        font-size: 14px;
-        margin: 2px;
-    }
-
-    #message {
+    #leaderboard h2 {
         font-size: 16px;
     }
-
-    #score-display {
+    #leaderboard-list li {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+    #player-name {
+        width: 140px;
         font-size: 14px;
     }
 }
