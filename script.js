@@ -108,9 +108,64 @@ const stages = [
  |    |
 =========`
 ];
+
 let word, guessedWord, attempts, guessedLetters, hintsUsed, currentCategory, gameOver;
+let wins = 0;
+let losses = 0;
 
 const $ = id => document.getElementById(id);
+
+// === SOUND ===
+// Uses the Web Audio API - no sound files needed
+let audioCtx = null;
+
+function initAudio() {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+}
+
+function playTone(frequency, duration, type) {
+    initAudio();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type || 'sine';
+    osc.frequency.value = frequency;
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+}
+
+function playCorrect() {
+    // Two quick ascending notes - cheerful
+    playTone(660, 0.1, 'sine');
+    setTimeout(() => playTone(880, 0.15, 'sine'), 90);
+}
+
+function playWrong() {
+    // Low descending buzz - disappointing
+    playTone(220, 0.2, 'sawtooth');
+    setTimeout(() => playTone(150, 0.25, 'sawtooth'), 150);
+}
+
+function playWin() {
+    // Happy ascending arpeggio
+    playTone(523, 0.1, 'sine');
+    setTimeout(() => playTone(659, 0.1, 'sine'), 100);
+    setTimeout(() => playTone(784, 0.15, 'sine'), 200);
+    setTimeout(() => playTone(1047, 0.3, 'sine'), 320);
+}
+
+function playLose() {
+    // Sad descending tones
+    playTone(400, 0.2, 'sine');
+    setTimeout(() => playTone(300, 0.2, 'sine'), 180);
+    setTimeout(() => playTone(200, 0.4, 'sine'), 360);
+}
+// === END SOUND ===
 
 function startGame(category) {
     currentCategory = category;
@@ -153,8 +208,10 @@ function handleGuess(letter, btn) {
         for (let i = 0; i < word.length; i++) {
             if (word[i] === letter) guessedWord[i] = letter;
         }
+        playCorrect();
     } else {
         attempts--;
+        playWrong();
     }
     guessedLetters.push(letter);
     updateDisplay();
@@ -176,6 +233,7 @@ function useHint() {
     }
     attempts--;
     hintsUsed++;
+    playCorrect();
     const btn = document.querySelector(`#keyboard button[data-letter="${letter}"]`);
     if (btn) btn.disabled = true;
     if (!guessedLetters.includes(letter)) guessedLetters.push(letter);
@@ -195,13 +253,23 @@ function updateDisplay() {
 function checkEnd() {
     if (!guessedWord.includes('_')) {
         gameOver = true;
+        wins++;
+        updateScore();
+        playWin();
         $('message').textContent = 'Congrats!! You guessed the word: ' + word;
         endGame();
     } else if (attempts <= 0) {
         gameOver = true;
+        losses++;
+        updateScore();
+        playLose();
         $('message').textContent = "You've run out of attempts! The word was: " + word;
         endGame();
     }
+}
+
+function updateScore() {
+    $('score-display').textContent = 'Wins: ' + wins + ' | Losses: ' + losses;
 }
 
 function endGame() {
