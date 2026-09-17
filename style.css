@@ -47,6 +47,12 @@ button:disabled {
     margin: 5px;
 }
 
+.diff-btn {
+    font-size: 16px;
+    padding: 12px 18px;
+    margin: 5px;
+}
+
 #score-display {
     font-size: 16px;
     color: #f9c74f;
@@ -120,6 +126,11 @@ button:disabled {
     font-size: 16px;
     padding: 12px 20px;
     margin-top: 20px;
+}
+
+/* === DIFFICULTY PICKER === */
+#difficulty-picker {
+    margin: 15px 0;
 }
 
 /* === LEADERBOARD === */
@@ -225,6 +236,12 @@ button:disabled {
     }
 
     .cat-btn {
+        font-size: 14px;
+        padding: 10px 14px;
+        margin: 4px;
+    }
+
+    .diff-btn {
         font-size: 14px;
         padding: 10px 14px;
         margin: 4px;
