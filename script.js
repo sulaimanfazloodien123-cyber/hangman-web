@@ -39,7 +39,7 @@ const categories = {
          'darkseid', 'brainiac', 'shazam', 'raven', 'starfire', 'beastboy',
          'deathstroke', 'scarecrow', 'poisonivy', 'misterfreeze', 'clayface',
          'manbat', 'killercroc', 'oracle', 'huntress', 'zatanna',
-         constantine', 'rorschach', 'nightowl', 'ozymandias']
+         'constantine', 'rorschach', 'nightowl', 'ozymandias']
 };
 
 const stages = [
