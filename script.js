@@ -40,8 +40,6 @@ const categories = {
          'deathstroke', 'scarecrow', 'poisonivy', 'misterfreeze', 'clayface',
          'manbat', 'killercroc', 'oracle', 'huntress', 'zatanna',
          'constantine', 'rorschach', 'nightowl', 'ozymandias']
-};
-
 const stages = [
 `  +---+
   |   |
@@ -49,18 +47,21 @@ const stages = [
       |
       |
       |
-=========`,
-`  +---+
-  |   |
-  O   |
-      |
-      |
       |
 =========`,
 `  +---+
   |   |
   O   |
+      |
+      |
+      |
+      |
+=========`,
+`  +---+
   |   |
+  O   |
+  |   |
+      |
       |
       |
 =========`,
@@ -70,11 +71,13 @@ const stages = [
  /|   |
       |
       |
+      |
 =========`,
 `  +---+
   |   |
   O   |
  /|\\  |
+      |
       |
       |
 =========`,
@@ -84,12 +87,14 @@ const stages = [
  /|\\  |
  /    |
       |
+      |
 =========`,
 `  +---+
   |   |
   O   |
  /|\\  |
  / \\  |
+      |
       |
 =========`,
 `  +---+
@@ -99,39 +104,8 @@ const stages = [
  / \\  |
  |    |
  |    |
-=========`,
-`  +---+
-  |   |
-  O   |
- /|\\  |
- / \\  |
- |    |
- |    |
- |    |
-=========`,
-`  +---+
-  |   |
-  O   |
- /|\\  |
- / \\  |
- |    |
- |    |
- |    |
- |    |
-=========`,
-`  +---+
-  |   |
-  O   |
- /|\\  |
- / \\  |
- |    |
- |    |
- |    |
- |    |
-/ \\  |
 =========`
 ];
-
 let word, guessedWord, attempts, guessedLetters, hintsUsed, currentCategory, gameOver;
 
 const $ = id => document.getElementById(id);
